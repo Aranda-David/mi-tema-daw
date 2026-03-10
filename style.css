@@ -1,0 +1,194 @@
+@charset "UTF-8";
+/* ==========================================================================
+   1. VARIABLES DE DISEÑO 
+   ========================================================================== */
+:root {
+  --color-primario: #0d6efd;
+  --color-oscuro: #1a1a1a;
+  --color-texto-suave: #666666;
+  --color-blanco: #ffffff;
+  --color-gris-bg: #f8f9fa;
+  --color-borde: #dee2e6;
+  --radio-card: 18px;
+  --transicion: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+  background-color: var(--color-blanco);
+  color: var(--color-oscuro);
+  font-family: sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   2. MODO OSCURO (REFORZADO TOTAL)
+   ========================================================================== */
+body.dark-theme {
+  --color-fondo-web: #121212;
+  --color-oscuro: #ffffff;
+  --color-gris-bg: #1e1e1e;
+  --color-borde: #333333;
+  background-color: var(--color-fondo-web);
+  color: var(--color-oscuro);
+  /* CAPA 1: Forzado universal de textos en modo oscuro */
+}
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme div,
+body.dark-theme label,
+body.dark-theme b,
+body.dark-theme strong,
+body.dark-theme i,
+body.dark-theme .card-title,
+body.dark-theme .card-text,
+body.dark-theme .text-muted,
+body.dark-theme .wpcf7 label,
+body.dark-theme .wpcf7-form-control-wrap {
+  color: var(--color-oscuro) !important;
+}
+body.dark-theme {
+  /* AJUSTE LOGO: Solo la parte de ANIMO pasa a blanco */
+}
+body.dark-theme .navbar-brand {
+  color: var(--color-oscuro) !important;
+}
+body.dark-theme .navbar-brand .text-primary {
+  color: var(--color-primario) !important;
+}
+body.dark-theme {
+  /* CAPA 2: Corrección de Cajas y Fichas (Eliminamos el blanco de Bootstrap) */
+}
+body.dark-theme .navbar.bg-white,
+body.dark-theme .card,
+body.dark-theme .card-servicio,
+body.dark-theme .tarjeta-proyecto,
+body.dark-theme .bg-light,
+body.dark-theme .single-proyectos .card.bg-light {
+  background-color: var(--color-gris-bg) !important;
+  color: var(--color-oscuro) !important;
+  border: 1px solid var(--color-borde) !important;
+}
+body.dark-theme {
+  /* CAPA 3: El Marco Azul de la Ficha Técnica (Single) */
+}
+body.dark-theme .single-proyectos .card.bg-light {
+  border-left: 6px solid var(--color-primario) !important;
+}
+body.dark-theme .nav-link {
+  color: var(--color-oscuro) !important;
+}
+body.dark-theme .nav-link:hover {
+  color: var(--color-primario) !important;
+}
+
+/* ==========================================================================
+   3. OPTIMIZACIÓN GPU Y ANIMACIONES
+   ========================================================================== */
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.hero-section img {
+  will-change: transform;
+  animation: flotar 6s ease-in-out infinite;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
+  transform: translateZ(0);
+}
+
+/* ==========================================================================
+   4. COMPONENTES: PROYECTOS Y FICHA TÉCNICA (HOVER Y MARCO)
+   ========================================================================== */
+.tarjeta-proyecto,
+#servicios .card,
+.card-servicio,
+.single-proyectos .card.bg-light {
+  border: 1px solid var(--color-borde);
+  transition: all var(--transicion);
+  cursor: pointer;
+}
+.tarjeta-proyecto:hover,
+#servicios .card:hover,
+.card-servicio:hover,
+.single-proyectos .card.bg-light:hover {
+  transform: translateY(-10px) !important;
+  border-color: var(--color-primario) !important;
+  box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2) !important;
+}
+.tarjeta-proyecto:hover .card-title,
+.tarjeta-proyecto:hover h4,
+#servicios .card:hover .card-title,
+#servicios .card:hover h4,
+.card-servicio:hover .card-title,
+.card-servicio:hover h4,
+.single-proyectos .card.bg-light:hover .card-title,
+.single-proyectos .card.bg-light:hover h4 {
+  color: var(--color-primario) !important;
+}
+.tarjeta-proyecto:hover i,
+#servicios .card:hover i,
+.card-servicio:hover i,
+.single-proyectos .card.bg-light:hover i {
+  transform: scale(1.1) rotate(-5deg);
+  color: var(--color-primario) !important;
+}
+
+.single-proyectos .card.bg-light {
+  border-left: 6px solid var(--color-primario) !important;
+  border-radius: var(--radio-card);
+}
+
+/* ==========================================================================
+   5. OTROS COMPONENTES
+   ========================================================================== */
+.navbar-nav {
+  gap: 1.5rem;
+}
+.navbar-nav .nav-link {
+  font-weight: 600;
+}
+
+/* REFUERZO FOOTER: Aseguramos visibilidad sobre fondo oscuro constante */
+footer.bg-dark .text-muted {
+  color: #aaaaaa !important;
+}
+footer.bg-dark strong {
+  color: #ffffff !important;
+}
+
+.btn-personalizado {
+  background-color: var(--color-primario);
+  color: #ffffff !important;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+.btn-personalizado:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3);
+  color: #ffffff !important;
+}
+
+footer .d-flex.gap-3 a {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+footer .d-flex.gap-3 a:hover {
+  transform: translateY(-5px);
+}
+footer .d-flex.gap-3 a:hover i {
+  color: var(--color-primario) !important;
+}/*# sourceMappingURL=style.css.map */
