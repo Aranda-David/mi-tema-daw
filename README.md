@@ -3,7 +3,7 @@
 > Transformando ideas en experiencias digitales.
 
 <p align="center">
-  <img src="preview.gif" width="100%" alt="Demostración Animo Creations">
+  <img src="demo.gif" width="100%" alt="Demostración Animo Creations">
 </p>
 
 Este es un tema de WordPress **100% original**, desarrollado desde cero como proyecto para el grado de Desarrollo de Aplicaciones Web (DAW). Se trata de un portafolio profesional con gestión de proyectos y servicios dinámicos.
